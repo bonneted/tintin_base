@@ -1,15 +1,13 @@
-function subimages = horyzontal_cutting(image,dist_int_bande,nb_vertical,threshold)
+function subimages = horyzontal_cutting(image,threshold)
 
-case_width = 100;
+case_width = 50;
 image_bw = rgb2gray(image);
 [h_image,l_image]=size(image_bw);
 
-vertical_parse=floor([1:nb_vertical]*l_image/(nb_vertical+1));
-
 horyzontals = [1 h_image];
 
-for ii=1:dist_int_bande:h_image-dist_int_bande
-    if threshold < sum(image_bw(ii:ii+dist_int_bande,vertical_parse),'all')/((dist_int_bande+1)*nb_vertical)
+for ii=1:h_image
+    if threshold < mean(mink(image_bw(ii,:),floor(l_image/5)))
         horyzontals = [horyzontals ii];
     end
 end
@@ -50,7 +48,7 @@ for ii=1:nb_subimg
     subimages{ii} = image(y_subimg(ii):y_subimg(ii+1),1:l_image,:); 
     subimage_bw = rgb2gray(subimages{ii});
  
-    if 250 < sum(subimage_bw,'all')/(size(subimage_bw,1)*size(subimage_bw,2)) %check for white case removal
+    if threshold < mean(subimage_bw,'all') %check for white case removal
         white_index = [white_index ii];
     end
 end
