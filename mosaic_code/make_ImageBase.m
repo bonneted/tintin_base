@@ -1,8 +1,8 @@
 function [Cases_MeanMatrix,Cases_Index] = make_ImageBase(AlbumFolder)
 %relative Height and Width case average value
-Height_ref = 0.24;
+Height_ref = 0.26;
 Height_delta = 0.02;
-Width_ref = 0.28;
+Width_ref = 0.27;
 Width_delta = 0.12;
 
 
@@ -31,7 +31,7 @@ for ii=1:length(AlbumList)-2
         
         if abs(Height-Height_ref) < Height_delta && abs(Width-Width_ref) < Width_delta
             thecase = imread(thecase_path);
-            Cases_Index{end+1} = imresize(thecase,[200 200]);
+            Cases_Index{end+1} = imresize(thecase,[100 100]);
             Cases_MeanMatrix = [Cases_MeanMatrix ; squeeze(mean(thecase,[1 2]))'];
         end
     end

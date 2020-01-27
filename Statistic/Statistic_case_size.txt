@@ -1,0 +1,18 @@
+Relative size of Tintin cases (case_size/page_height)
+
+------ Height ------
+
+mean = 0.236255888340313
+std = 0.034468480810879
+
+
+------ Width ------
+
+mean = 0.215773776431553
+std = 0.075686050719323
+
+---Algo selection---
+
+Hfilter = [0.20 0.26]
+Wilter = [0.12 0.27]
+
