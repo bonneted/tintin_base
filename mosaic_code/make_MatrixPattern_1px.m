@@ -1,3 +1,3 @@
-function MatrixRef = make_MatrixPattern_1px(imref)
-MatrixRef = squeeze(reshape(imref,[],1,3));
+function MatrixPattern = make_MatrixPattern_1px(Pattern)
+MatrixPattern = squeeze(reshape(Pattern,[],1,3));
 end
