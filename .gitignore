@@ -1,4 +1,5 @@
 *.asv
-data/*
+data_tintin/*
+Statistic_Tintin/*
 mosaic/*
 
